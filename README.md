@@ -63,8 +63,8 @@ A tool for visualizing OpenMP thread runtime behavior using OMPT (OpenMP Tools I
            // Your parallel code here
        }
 
-			 ompt_annotate("Phase 2");
-			 #pragma omp parallel
+       ompt_annotate("Phase 2");
+       #pragma omp parallel
        {
            // Your parallel code here
        }
