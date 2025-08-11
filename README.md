@@ -50,7 +50,7 @@ A tool for visualizing OpenMP thread runtime behavior using OMPT (OpenMP Tools I
 ## Usage
 
 ### Quick Start
-1. **Prepare your OpenMP program** and compile it with OpenMP support. If you have LLVM installed with OpenMP support and you compile your program with LLVM's **clang**, you are ready to go. However, if you want to compile your code with GCC, things are a bit trickier: GCC's [libgomp does not support OMPT](https://www.openmp.org/resources/openmp-compilers-tools/#compilers), which the visualizer tool relies on. You should link GCC against LLVM's libomp. Instructions on how to do this will be published soon.
+1. **Prepare your OpenMP program** and compile it with OpenMP support. If you have LLVM installed with OpenMP support and you compile your program with LLVM's **clang**, you are ready to go. However, if you want to compile your code with GCC, things are a bit trickier: GCC's [libgomp does not support OMPT](https://www.openmp.org/resources/openmp-compilers-tools/#compilers), which the visualizer tool relies on. You should link GCC against LLVM's libomp. You can find the instructions on how to do this [here](docs/gcc-ompt.md).
 
 2. **Add annotations to your source code** (optional):
    ```c
