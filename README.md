@@ -26,7 +26,7 @@ A tool for visualizing OpenMP thread runtime behavior using OMPT (OpenMP Tools I
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/omp_runtime_visualizer.git
+   git clone https://github.com/alirezahdd/omp_runtime_visualizer.git
    cd omp_runtime_visualizer
    ```
 
