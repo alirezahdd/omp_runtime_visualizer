@@ -28,6 +28,7 @@ OMPT_LDFLAGS = -fopenmp -shared -L$(OPENMP_LIB) -lomp
 all: $(OMPT_LIB) setup-script
 
 $(OMPT_LIB): $(SRC_DIR)/visualizer_tool.c
+	@mkdir -p $(LIB_DIR)
 	$(CC) $(OMPT_CFLAGS) $(OMPT_LDFLAGS) -o $(LIB_DIR)/$@ $<
 	@echo "✔ Build successful: $(LIB_DIR)/$@"
 
