@@ -20,7 +20,31 @@ class OMPTParser:
         print(f"Parsing OMPT output file: {self.filename}")
 
         with open(self.filename, "r") as f:
-            for line_num, line in enumerate(f, 1):
+            lines = f.readlines()
+            
+            # Find Region of Interest (ROI) if exists
+            # Find ROI_START and ROI_END lines starting with [OMPT_annotation]
+            roi_start_idx = None
+            roi_end_idx = None
+            for i, line in enumerate(lines):
+                if "[OMPT_annotation]" in line and "ROI_START" in line:
+                    roi_start_idx = i
+                elif "[OMPT_annotation]" in line and "ROI_END" in line:
+                    roi_end_idx = i
+                    break
+            if roi_start_idx is not None and roi_end_idx is not None:
+                # Get lines between ROI_START and ROI_END, excluding those markers
+                lines_to_parse = [line.strip() for line in lines[roi_start_idx + 1:roi_end_idx]]
+            elif roi_start_idx is not None:
+                # ROI_START found but no ROI_END, take from ROI_START to end
+                lines_to_parse = [line.strip() for line in lines[roi_start_idx + 1:]]
+            else:
+                # No ROI markers found, parse all lines
+                lines_to_parse = [line.strip() for line in lines]
+            
+            
+            # for line_num, line in enumerate(f, 1):
+            for line_num, line in enumerate(lines_to_parse, 1):
                 line = line.strip()
                 if not line:
                     continue

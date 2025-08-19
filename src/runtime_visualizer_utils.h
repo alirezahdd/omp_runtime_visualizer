@@ -48,5 +48,12 @@ void ompt_annotate(const char* annotation) {
          thread_id, timestamp / 1000.0, annotation);
 }
 
+inline void ompt_mark_roi_start() {
+  ompt_annotate("ROI_START");
+}
+
+inline void ompt_mark_roi_end() {
+  ompt_annotate("ROI_END");
+} 
 
 #endif  // OMPT_ANNOTATION_H
